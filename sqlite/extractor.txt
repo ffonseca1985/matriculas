@@ -1,0 +1,24 @@
+
+.open '../dados_sqlite/matriculas.sqlite'
+
+.mode csv
+.separator "|"
+
+.import '../fonte_dados_csv/ESCOLAS.CSV' ESCOLAS
+.import '../fonte_dados_csv/TURMAS.CSV' TURMAS
+.import '../fonte_dados_csv/MATRICULA_NORTE.CSV' MATRICULAS
+
+.separator ";"
+
+.headers on
+
+.output '../dados_sqlite/ESCOLAS_BELEM.csv'
+SELECT * FROM ESCOLAS WHERE CO_MUNICIPIO  = '1501402';
+
+.output '../dados_sqlite/TURMAS_BELEM.csv'
+SELECT * FROM TURMAS WHERE CO_MUNICIPIO  = '1501402';
+
+.output '../dados_sqlite/MATRICULAS_BELEM.csv'
+SELECT * FROM MATRICULAS WHERE CO_MUNICIPIO  = '1501402';
+
+.quit
